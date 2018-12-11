@@ -10,7 +10,10 @@ const contactsLocation = 'contacts.json'
  * it to a js object
  */
 const getContacts = () => {
-  
+  const output = fs.readFileSync(path.join(__dirname, contactsLocation), 'utf8');
+  const json = JSON.parse(output)
+  console.log(json);
+  return json;
 }
 
 /**
