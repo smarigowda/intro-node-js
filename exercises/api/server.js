@@ -48,9 +48,9 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(404)
     logRequest(method, route, 404)
     res.end();
+    return;
   }
-  // this is sloppy, espcially with more assets, create a "router"
-  if (routeMatch) {
+  if(routeMatch) {
     const { asset, mime } = routeMatch;
     res.writeHead(200, { 'Content-Type': mime })
     res.write(await findAsset(asset))
